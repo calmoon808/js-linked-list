@@ -43,20 +43,18 @@ function linkedListGenerator(){
         },
         remove: function(index){
             let current = this.get(index);
-            let before, after;
+            let before;
             if (this.get(index) === false){
                 return false;
             }
             if (index > 0){
                 before = this.get(index - 1);
+                if (!this.get(index + 1)){
+                    tail = before;
+                }
             } else {
                 before = false;
                 head = current.next;
-            }
-            if (this.get(index + 1)){
-                after = this.get(index + 1);
-            } else {
-                tail = before;
             }
             before.next = current.next;
         },
