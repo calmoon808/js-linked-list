@@ -44,17 +44,17 @@ function linkedListGenerator(){
         remove: function(index){
             let current = this.get(index);
             let before;
-            if (this.get(index) === false){
+            if (current === false){
                 return false;
             }
-            if (index > 0){
-                before = this.get(index - 1);
-                if (!this.get(index + 1)){
-                    tail = before;
-                }
-            } else {
-                before = false;
+            if (index <= 0){
                 head = current.next;
+                before = false;
+            } else if (!this.get(index + 1)) {
+                before = this.get(index - 1);
+                tail = before;
+            } else {
+                before = this.get(index - 1);
             }
             before.next = current.next;
         },
