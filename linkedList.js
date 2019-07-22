@@ -49,12 +49,10 @@ function linkedListGenerator(){
             }
             if (index === 0){
                 head = current.next;
-                before = false;
             } else if (!this.get(index + 1)) {
                 tail = before;
                 before.next = null;
             } else {
-                before = this.get(index - 1);
                 before.next = current.next;
             }
         },
